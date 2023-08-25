@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:admin/core/config/extensions.dart';
+import 'package:admin/core/theme/theme_helper.dart';
 import 'package:admin/features/main/main_screen.dart';
 import 'package:admin/services/auth_services.dart';
 import 'package:admin/services/firestoreServices.dart';
@@ -60,9 +61,9 @@ class AuthController extends GetxController {
 
     _checkCurrentUser();
 
-    email.text = "javeedishaq88@gmail.com";
-    password.text = "#123@Dev";
-    confirmPassword.text = "#123@Dev";
+    // email.text = "javeedishaq88@gmail.com";
+    // password.text = "#123@Dev";
+    // confirmPassword.text = "#123@Dev";
   }
 
   void _checkCurrentUser() {
@@ -178,11 +179,22 @@ class AuthController extends GetxController {
       update();
       EasyLoading.dismiss();
       Get.offNamed('/main');
-      Get.snackbar("Success", "You have Signed In Successfully");
+      Get.snackbar(
+        "Success",
+        "You have Signed In Successfully",
+        colorText: Colors.white,
+        backgroundColor: theme.colorScheme.primary,
+      );
     } else {
       EasyLoading.dismiss();
       loginCredential = true;
       update();
+      Get.snackbar(
+        "Error",
+        "Error Signing in, please check your credentials and try again",
+        colorText: Colors.white,
+        backgroundColor: Colors.red,
+      );
     }
   }
 

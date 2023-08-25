@@ -15,28 +15,26 @@ class ThemeButtonLarge extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 30),
-      child: Expanded(
-        child: ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor:
-                MaterialStateProperty.all<Color>(theme.colorScheme.primary),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
-                side: BorderSide(
-                    color: theme.colorScheme.primary), // White border color
-              ),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor:
+              MaterialStateProperty.all<Color>(theme.colorScheme.primary),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+              side: BorderSide(
+                  color: theme.colorScheme.primary), // White border color
             ),
-            //maximumSize: MaterialStateProperty.all<Size>(const Size(530, 58)),
-            minimumSize: MaterialStateProperty.all<Size>(
-                const Size(double.maxFinite, 56)), // Height of 58
-            //
           ),
-          onPressed: onTap,
-          child: Text(
-            title,
-            style: theme.textTheme.bodyLarge,
-          ),
+          //maximumSize: MaterialStateProperty.all<Size>(const Size(530, 58)),
+          minimumSize: MaterialStateProperty.all<Size>(
+              const Size(double.maxFinite, 56)), // Height of 58
+          //
+        ),
+        onPressed: onTap,
+        child: Text(
+          title,
+          style: theme.textTheme.bodyLarge,
         ),
       ),
     );

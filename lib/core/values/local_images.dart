@@ -3,7 +3,7 @@ class LocalImages {
   static String vybeLogo = 'assets/images/logo.png';
   static String bgWithLogo = 'assets/images/bg-with-logo.png';
   static String googleIcon = 'assets/icons/GoogleIcon.png';
-  static String lockIcon = 'assets/svg/img_antdesignlockoutlined.svg';
+  // static String lockIcon = 'assets/svg/img_antdesignlockoutlined.svg';
   // static String emailIcon = 'assets/svg/img_antdesignmailoutlined.svg';
   static String emailUser = 'assets/svg/envelop_icon.svg';
   static const String calenderIcon = 'assets/svg/calender_icon.svg';

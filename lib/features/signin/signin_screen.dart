@@ -113,10 +113,6 @@ class _SignInScreenState extends State<SignInScreen> {
                               CommonTextFieldView(
                                 controller: authCtrlr.password,
                                 errorText: _errorPassword,
-                                prefixIcon: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: SvgPicture.asset(LocalImages.lockIcon),
-                                ),
                                 labelText: 'Password',
                                 keyboardType: TextInputType.text,
                                 onChanged: (String txt) {},
