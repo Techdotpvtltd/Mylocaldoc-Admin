@@ -1,0 +1,13 @@
+const String authTokenPrefKey = 'authToken';
+const String userEmailPrefKey = 'userEmail';
+const String storeIdPrefKey = 'storeId';
+const String isGuestUserPrefKey = 'isGuestUser';
+const String selectedCityNamePrefKey = 'selectedCityName';
+const String userProfileDataPrefKey = 'userProfileData';
+const String recentProductSearches = 'recentProductSearches';
+const String userSelectedLocationId = 'userSelectedLocationId';
+const String fingerPrintEnableStatus = 'fingerPrintEnableStatus';
+const String authUserPrefKey = 'authUser';
+const String authCodePrefKey = 'authCode';
+const String googleAuthCodePrefKey = 'googleAuthCode';
+const String facebookAuthCodePrefKey = 'facebookAuthCode';
