@@ -3,14 +3,14 @@ import 'package:admin/features/dashboard/components/header.dart';
 import 'package:admin/widgets/temp_title_widget.dart';
 import 'package:flutter/material.dart';
 
-class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key});
+class ContactUsEntriesView extends StatefulWidget {
+  const ContactUsEntriesView({super.key});
 
   @override
-  State<SettingsScreen> createState() => _SettingsScreenState();
+  State<ContactUsEntriesView> createState() => _ContactUsEntriesViewState();
 }
 
-class _SettingsScreenState extends State<SettingsScreen> {
+class _ContactUsEntriesViewState extends State<ContactUsEntriesView> {
   int currentTabIndex = 0;
 
   @override
@@ -23,14 +23,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return SafeArea(
       child: Container(
         color: appColors.black90002,
-        child: const SingleChildScrollView(
+        child: SingleChildScrollView(
           primary: false,
-          padding: EdgeInsets.all(defaultPadding),
+          padding: const EdgeInsets.all(defaultPadding),
           child: Column(
             children: [
               Header(),
-              SizedBox(height: defaultPadding),
-              TempWidgetTitle("CHM")
+              const SizedBox(height: defaultPadding),
+              const TempWidgetTitle("Contact Us Form Submissions")
             ],
           ),
         ),

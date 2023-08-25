@@ -92,11 +92,6 @@ class _SignInScreenState extends State<SignInScreen> {
                               CommonTextFieldView(
                                 controller: authCtrlr.email,
                                 errorText: _errorEmail,
-                                prefixIcon: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child:
-                                      SvgPicture.asset(LocalImages.emailIcon),
-                                ),
                                 labelText: 'Email',
                                 keyboardType: TextInputType.emailAddress,
                                 onChanged: (String txt) {},

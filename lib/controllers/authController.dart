@@ -15,6 +15,13 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AuthController extends GetxController {
+  //
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  Rx<User?> user = Rx<User?>(null);
+
+  //
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController userName = TextEditingController();
@@ -33,7 +40,7 @@ class AuthController extends GetxController {
   TextEditingController fullName = TextEditingController();
   TextEditingController location = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
-  final FirestoreServices _store = Get.find<FirestoreServices>();
+  // final FirestoreServices _store = Get.find<FirestoreServices>();
 
   File? profileImage;
   File? cv;
@@ -41,7 +48,6 @@ class AuthController extends GetxController {
 
   PageController controller = PageController(initialPage: 0);
   PageController controller1 = PageController(initialPage: 0);
-
   TextEditingController dob = TextEditingController();
 
   File? proImage;
@@ -52,10 +58,30 @@ class AuthController extends GetxController {
     super.onInit();
     // Initialize variables or perform setup.
 
+    _checkCurrentUser();
+
     email.text = "javeedishaq88@gmail.com";
     password.text = "#123@Dev";
     confirmPassword.text = "#123@Dev";
   }
+
+  void _checkCurrentUser() {
+    _auth.authStateChanges().listen((User? currentUser) {
+      user.value = currentUser;
+    });
+  }
+
+  // Logout function
+  Future<void> logout() async {
+    try {
+      await _auth.signOut();
+      Get.toNamed("/");
+    } catch (e) {
+      ("Error during logout: $e").log();
+    }
+  }
+
+  // ============
 
   getGalleryImages() async {
     final ImagePicker picker = ImagePicker();
@@ -88,7 +114,6 @@ class AuthController extends GetxController {
 
   FilePickerResult? result;
 
-  bool user = false;
   bool partner = false;
   bool focus = false;
 
@@ -133,6 +158,8 @@ class AuthController extends GetxController {
     }
   }
 
+  checkIfUserIsLoggedIn() {}
+
   loginUser() async {
     EasyLoading.show();
 
@@ -150,9 +177,8 @@ class AuthController extends GetxController {
       loginCredential = false;
       update();
       EasyLoading.dismiss();
+      Get.offNamed('/main');
       Get.snackbar("Success", "You have Signed In Successfully");
-
-      Get.offAll(const MainScreen());
     } else {
       EasyLoading.dismiss();
       loginCredential = true;

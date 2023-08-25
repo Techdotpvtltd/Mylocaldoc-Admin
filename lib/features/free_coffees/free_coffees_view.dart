@@ -3,15 +3,14 @@ import 'package:admin/features/dashboard/components/header.dart';
 import 'package:admin/widgets/temp_title_widget.dart';
 import 'package:flutter/material.dart';
 
-class PaymentsStructureScreen extends StatefulWidget {
-  const PaymentsStructureScreen({super.key});
+class FreeCoffeesView extends StatefulWidget {
+  const FreeCoffeesView({super.key});
 
   @override
-  State<PaymentsStructureScreen> createState() =>
-      _PaymentsStructureScreenState();
+  State<FreeCoffeesView> createState() => _FreeCoffeesViewState();
 }
 
-class _PaymentsStructureScreenState extends State<PaymentsStructureScreen> {
+class _FreeCoffeesViewState extends State<FreeCoffeesView> {
   int currentTabIndex = 0;
 
   @override
@@ -24,14 +23,14 @@ class _PaymentsStructureScreenState extends State<PaymentsStructureScreen> {
     return SafeArea(
       child: Container(
         color: appColors.black90002,
-        child: const SingleChildScrollView(
+        child: SingleChildScrollView(
           primary: false,
-          padding: EdgeInsets.all(defaultPadding),
+          padding: const EdgeInsets.all(defaultPadding),
           child: Column(
             children: [
               Header(),
-              SizedBox(height: defaultPadding),
-              TempWidgetTitle("Contact Us Form Submissions")
+              const SizedBox(height: defaultPadding),
+              const TempWidgetTitle("Free Coffee")
             ],
           ),
         ),

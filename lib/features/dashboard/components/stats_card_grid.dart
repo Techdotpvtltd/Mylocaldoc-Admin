@@ -1,6 +1,8 @@
+import 'package:admin/controllers/nav_controller.dart';
 import 'package:admin/core/helpers/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:admin/core/models/stats_info_model.dart';
+import 'package:get/get.dart';
 import '../../../core/config/constants.dart';
 import 'stat_info_card.dart';
 
@@ -52,8 +54,16 @@ class FileInfoCardGridView extends StatelessWidget {
         mainAxisSpacing: defaultPadding,
         childAspectRatio: childAspectRatio,
       ),
-      itemBuilder: (context, index) =>
-          StatInfoCard(info: statsInfoModelList[index]),
+      itemBuilder: (context, index) => InkWell(
+        onTap: () {
+          Get.find<NavigationController>().updatePanelView(
+            index: index,
+          );
+        },
+        child: StatInfoCard(
+          info: statsInfoModelList[index],
+        ),
+      ),
     );
   }
 }

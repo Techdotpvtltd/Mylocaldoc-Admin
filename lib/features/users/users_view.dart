@@ -3,14 +3,14 @@ import 'package:admin/features/dashboard/components/header.dart';
 import 'package:admin/widgets/temp_title_widget.dart';
 import 'package:flutter/material.dart';
 
-class EventsScreen extends StatefulWidget {
-  const EventsScreen({super.key});
+class UsersView extends StatefulWidget {
+  const UsersView({super.key});
 
   @override
-  State<EventsScreen> createState() => _EventsScreenState();
+  State<UsersView> createState() => _UsersViewState();
 }
 
-class _EventsScreenState extends State<EventsScreen> {
+class _UsersViewState extends State<UsersView> {
   int currentTabIndex = 0;
 
   @override
@@ -23,14 +23,15 @@ class _EventsScreenState extends State<EventsScreen> {
     return SafeArea(
       child: Container(
         color: appColors.black90002,
-        child: const SingleChildScrollView(
+        child: SingleChildScrollView(
           primary: false,
-          padding: EdgeInsets.all(defaultPadding),
+          padding: const EdgeInsets.all(defaultPadding),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Header(),
-              SizedBox(height: defaultPadding),
-              TempWidgetTitle("Personalization")
+              const SizedBox(height: defaultPadding),
+              const TempWidgetTitle("Users")
             ],
           ),
         ),

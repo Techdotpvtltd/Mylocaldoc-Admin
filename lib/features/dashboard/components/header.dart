@@ -1,59 +1,85 @@
+import 'package:admin/controllers/authController.dart';
 import 'package:admin/exports/app_exports.dart';
 import 'package:admin/exports/common_exports.dart';
-import 'package:admin/features/main/cubit/navigation_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 
 class Header extends StatelessWidget {
-  const Header({
+  Header({
     Key? key,
   }) : super(key: key);
 
+  final AuthController authController = Get.find<AuthController>();
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NavigationCubit, NavigationState>(
-      builder: (context, state) {
-        return Row(
-          children: [
-            if (!Responsive.isDesktop(context))
-              IconButton(
-                icon: const Icon(Icons.menu),
-                onPressed: context.read<MenuAppController>().controlMenu,
-              ),
-            if (!Responsive.isMobile(context))
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Hi Admin",
-                    style: theme.textTheme.headlineSmall,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        "Welcome back",
-                        style: theme.textTheme.displayLarge,
+    return Row(
+      children: [
+        if (!Responsive.isDesktop(context))
+          IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: context.read<MenuAppController>().controlMenu,
+          ),
+        if (!Responsive.isMobile(context))
+          Expanded(
+            // color: Colors.amber,
+            // width: double.maxFinite,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Hi Admin",
+                      style: theme.textTheme.headlineSmall,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        authController.logout(); // Call the logout function
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: theme.colorScheme.primary,
                       ),
-                      Image.asset("assets/icons/hand-icon.png"),
-                    ],
-                  ),
-                  // Text(
-                  //   state.title,
-                  //   style: theme.textTheme.headlineSmall!
-                  //       .copyWith(color: appColors.blueGray300),
-                  // ),
-                ],
-              ),
-            // if (!Responsive.isMobile(context))
-            //   Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
-            // const SearchField(),
-            // const HorizontalSpace(40),
-            // const NotificationsIconWidget(
-            //   notificationsCount: 2,
-            // )
-          ],
-        );
-      },
+                      child: const Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.logout, color: Colors.white),
+                          SizedBox(width: 8),
+                          Text('Logout', style: TextStyle(color: Colors.white)),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Welcome back",
+                      style: theme.textTheme.displayLarge,
+                    ),
+                    Image.asset("assets/icons/hand-icon.png"),
+                  ],
+                ),
+                // Text(
+                //   state.title,
+                //   style: theme.textTheme.headlineSmall!
+                //       .copyWith(color: appColors.blueGray300),
+                // ),
+              ],
+            ),
+          ),
+        // if (!Responsive.isMobile(context))
+        //   Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
+        // const SearchField(),
+        // const HorizontalSpace(40),
+        // const NotificationsIconWidget(
+        //   notificationsCount: 2,
+        // )
+      ],
     );
   }
 }

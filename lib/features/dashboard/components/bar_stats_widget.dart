@@ -1,14 +1,6 @@
-import 'package:admin/core/helpers/samples/line/line_chart_sample6.dart';
 import 'package:admin/exports/app_exports.dart';
-import 'package:admin/features/dashboard/components/location_progress_bar_widget.dart';
-import 'package:admin/features/dashboard/components/members_booking_row.dart';
-import 'package:admin/features/dashboard/components/percentage_bar_widget.dart';
-import 'package:admin/features/dashboard/components/sale_summary_charts_widget.dart';
 import 'package:admin/features/dashboard/components/stats_card_grid.dart';
-import 'package:admin/features/dashboard/components/title_sub_title_box_widget.dart';
-import 'package:admin/features/dashboard/components/total_income_charts_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class BarStatsWidget extends StatelessWidget {
   const BarStatsWidget({

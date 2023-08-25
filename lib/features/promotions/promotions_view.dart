@@ -3,14 +3,14 @@ import 'package:admin/features/dashboard/components/header.dart';
 import 'package:admin/widgets/temp_title_widget.dart';
 import 'package:flutter/material.dart';
 
-class BookingScreen extends StatefulWidget {
-  const BookingScreen({super.key});
+class PromotionsView extends StatefulWidget {
+  const PromotionsView({super.key});
 
   @override
-  State<BookingScreen> createState() => _BookingScreenState();
+  State<PromotionsView> createState() => _PromotionsViewState();
 }
 
-class _BookingScreenState extends State<BookingScreen> {
+class _PromotionsViewState extends State<PromotionsView> {
   int currentTabIndex = 0;
 
   @override
@@ -23,14 +23,14 @@ class _BookingScreenState extends State<BookingScreen> {
     return SafeArea(
       child: Container(
         color: appColors.black90002,
-        child: const SingleChildScrollView(
+        child: SingleChildScrollView(
           primary: false,
-          padding: EdgeInsets.all(defaultPadding),
+          padding: const EdgeInsets.all(defaultPadding),
           child: Column(
             children: [
               Header(),
-              SizedBox(height: defaultPadding),
-              TempWidgetTitle("Promotions")
+              const SizedBox(height: defaultPadding),
+              const TempWidgetTitle("Promotions")
             ],
           ),
         ),

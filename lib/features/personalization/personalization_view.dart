@@ -3,14 +3,14 @@ import 'package:admin/features/dashboard/components/header.dart';
 import 'package:admin/widgets/temp_title_widget.dart';
 import 'package:flutter/material.dart';
 
-class UsersScreen extends StatefulWidget {
-  const UsersScreen({super.key});
+class PersonalizationsView extends StatefulWidget {
+  const PersonalizationsView({super.key});
 
   @override
-  State<UsersScreen> createState() => _UsersScreenState();
+  State<PersonalizationsView> createState() => _PersonalizationsViewState();
 }
 
-class _UsersScreenState extends State<UsersScreen> {
+class _PersonalizationsViewState extends State<PersonalizationsView> {
   int currentTabIndex = 0;
 
   @override
@@ -23,14 +23,14 @@ class _UsersScreenState extends State<UsersScreen> {
     return SafeArea(
       child: Container(
         color: appColors.black90002,
-        child: const SingleChildScrollView(
+        child: SingleChildScrollView(
           primary: false,
-          padding: EdgeInsets.all(defaultPadding),
+          padding: const EdgeInsets.all(defaultPadding),
           child: Column(
             children: [
               Header(),
-              SizedBox(height: defaultPadding),
-              TempWidgetTitle("Users")
+              const SizedBox(height: defaultPadding),
+              const TempWidgetTitle("Personalization")
             ],
           ),
         ),
