@@ -1,3 +1,4 @@
+import 'package:admin/core/theme/app_colors.dart';
 import 'package:admin/exports/app_exports.dart';
 import 'package:admin/exports/common_exports.dart';
 import 'package:flutter/material.dart';
@@ -32,13 +33,13 @@ class NotificationsIconWidget extends StatelessWidget {
                 width: 20,
                 height: 20,
                 decoration: BoxDecoration(
-                  color: appColors.redFF754C,
+                  color: AppColors.red500,
                   borderRadius: BorderRadius.circular(20 / 2),
                 ),
                 child: Center(
                   child: Text(
                     "$notificationsCount",
-                    style: theme.textTheme.labelMedium,
+                    style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ),
               ),

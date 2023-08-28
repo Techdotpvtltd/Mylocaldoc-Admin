@@ -1,4 +1,5 @@
-import 'package:admin/core/theme/theme_helper.dart';
+import 'package:admin/core/theme/app_colors.dart';
+import 'package:admin/core/theme/themes.dart';
 import 'package:flutter/material.dart';
 
 class CommonTextFieldView extends StatelessWidget {
@@ -50,10 +51,13 @@ class CommonTextFieldView extends StatelessWidget {
                 textCapitalization: textCapitalization,
                 maxLines: 1,
                 onChanged: onChanged,
-                style: TextStyle(color: appColors.whiteA700),
+                style: TextStyle(
+                  color: AppTheme.isLightMode
+                      ? AppColors.textColoForLight
+                      : AppColors.textColoForDark,
+                ),
                 obscureText: isObscureText,
                 cursorColor: Theme.of(context).primaryColor,
-                 
                 onEditingComplete: () {
                   FocusScope.of(context).nextFocus();
                 },
@@ -63,34 +67,52 @@ class CommonTextFieldView extends StatelessWidget {
                       ? isObscureText
                           ? IconButton(
                               icon: Icon(Icons.visibility_off,
-                                  color: appColors.blueGray300, size: 25),
+                                  color: AppColors.blueGray300, size: 25),
                               onPressed: toggleObscure,
                             )
                           : IconButton(
                               icon: Icon(Icons.visibility,
-                                  color: appColors.blueGray300, size: 25),
+                                  color: AppColors.blueGray300, size: 25),
                               onPressed: toggleObscure,
                             )
                       : null,
-                  //labelText: labelText,
+                  labelText: labelText,
                   prefixIcon: prefixIcon,
                   prefixIconConstraints: const BoxConstraints(
                     maxHeight: 50,
                     maxWidth: 56,
                   ),
-                  hintText: labelText,
-                  labelStyle: TextStyle(color: appColors.whiteA700),
-                  hintStyle: theme.textTheme.bodyLarge,
+                  //hintText: labelText,
+                  labelStyle: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: AppTheme.isLightMode
+                        ? AppColors.textColoForLight
+                        : AppColors.textColoForDark,
+                  ),
+                  hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        color: AppTheme.isLightMode
+                            ? AppColors.textColoForLight
+                            : AppColors.textColoForDark,
+                      ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: appColors.whiteA700),
+                    borderSide: BorderSide(
+                      color: AppTheme.isLightMode
+                          ? AppColors.textColoForLight
+                          : AppColors.textColoForDark,
+                    ),
                     borderRadius: const BorderRadius.all(Radius.circular(5.0)),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: appColors.whiteA700),
+                    borderSide: BorderSide(color: AppColors.primary),
                     borderRadius: const BorderRadius.all(Radius.circular(5.0)),
                   ),
                   border: OutlineInputBorder(
-                    borderSide: BorderSide(color: appColors.whiteA700),
+                    borderSide: BorderSide(
+                      color: AppTheme.isLightMode
+                          ? AppColors.textColoForLight
+                          : AppColors.textColoForDark,
+                    ),
                     borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                   ),
                 ),

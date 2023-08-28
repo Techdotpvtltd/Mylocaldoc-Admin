@@ -10,3 +10,4 @@ export '../widgets/logo_with_graphic_bg_section_widget.dart';
 export '../widgets/rounded_grey_widget.dart';
 export '../widgets/search_text_field.dart';
 export '../widgets/rounded_bg_icon_widget.dart';
+export '../widgets/light_dark_theme_switch_button.dart';

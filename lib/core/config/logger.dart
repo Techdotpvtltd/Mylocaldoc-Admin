@@ -1,5 +1,5 @@
 import 'package:admin/core/config/app_constants.dart';
-import 'package:admin/core/config/extensions.dart';
+import 'package:admin/core/extensions/extension.dart';
 import 'package:logger/logger.dart';
 
 Logger getLogger(String className) {

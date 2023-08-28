@@ -1,17 +1,19 @@
+import 'package:admin/core/theme/app_colors.dart';
 import 'package:admin/exports/app_exports.dart';
-import 'package:admin/features/dashboard/components/dash_board_widgets.dart';
+import 'package:admin/features/dashboard/components/header.dart';
+import 'package:admin/widgets/temp_title_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'components/header.dart';
-
-class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({super.key});
+class OurLocalsView extends StatefulWidget {
+  const OurLocalsView({super.key});
 
   @override
-  State<DashboardScreen> createState() => _DashboardScreenState();
+  State<OurLocalsView> createState() => _OurLocalsViewState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen> {
+class _OurLocalsViewState extends State<OurLocalsView> {
+  int currentTabIndex = 0;
+
   @override
   void initState() {
     super.initState();
@@ -27,7 +29,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           children: [
             Header(),
             const SizedBox(height: defaultPadding),
-            const DashBoardWidgets()
+            const TempWidgetTitle("Our Locals")
           ],
         ),
       ),

@@ -1,6 +1,6 @@
+import 'package:admin/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:admin/core/theme/theme_helper.dart';
 
 class RoundedGreyWidget extends StatelessWidget {
   final String icon;
@@ -18,7 +18,7 @@ class RoundedGreyWidget extends StatelessWidget {
       width: size,
       height: size,
       decoration: BoxDecoration(
-        color: appColors.black333333,
+        color: AppColors.black900,
         borderRadius: BorderRadius.circular(size / 2),
       ),
       child: Center(

@@ -1,19 +1,14 @@
-import 'package:admin/core/values/strings_manager.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class PersonalizationModel {
-  int? id;
-  String? trailingIcon;
-  String? title;
+  String? id;
+  String? value;
 
-  PersonalizationModel({this.id, this.trailingIcon, this.title});
+  PersonalizationModel({this.id, this.value});
+
+  PersonalizationModel.fromDocumentSnapshot(
+      QueryDocumentSnapshot<Object?> doc) {
+    id = doc.id;
+    value = doc['value'];
+  }
 }
-
-List<PersonalizationModel>? personalizationList = [
-  PersonalizationModel(id: 0, title: AppStrings.menHealth),
-  PersonalizationModel(id: 1, title: AppStrings.mentalHealth),
-  PersonalizationModel(id: 2, title: AppStrings.womenHealth),
-  PersonalizationModel(id: 3, title: AppStrings.aviationMedicine),
-  PersonalizationModel(id: 4, title: AppStrings.weightManagement),
-  PersonalizationModel(id: 5, title: AppStrings.integrativeMedicine),
-  PersonalizationModel(id: 6, title: AppStrings.alliedHealthServices),
-];

@@ -1,105 +1,101 @@
+import 'package:admin/core/theme/app_colors.dart';
 import 'package:admin/exports/app_exports.dart';
+import 'package:admin/features/our_locals/our_locals_view.dart';
+import 'package:admin/features/contact_us_entries/contact_us_entries_view.dart';
+import 'package:admin/features/free_coffees/free_coffees_view.dart';
+import 'package:admin/features/personalization/personalization_view.dart';
+import 'package:admin/features/promotions/promotions_view.dart';
+import 'package:admin/features/users/users_view.dart';
 import 'package:flutter/material.dart';
 
 class StatsInfoModel {
-  final String? svgSrc, title, value, statsSpan;
-  final int? percentage;
-  final Color? iconColor;
-  final bool? isIncremented;
+  final String svgSrc, title, subtitle;
+  final Color iconColor;
+  final Widget panelView;
 
   StatsInfoModel({
-    this.svgSrc,
-    this.title,
-    this.percentage,
-    this.iconColor,
-    this.value,
-    this.statsSpan,
-    this.isIncremented,
+    required this.svgSrc,
+    required this.title,
+    required this.subtitle,
+    required this.iconColor,
+    required this.panelView,
   });
 }
 
-List statsInfoModelList = [
+final List<Widget> dashboardViewsList = [
+  //const DashboardScreen(),
+  const UsersView(),
+  PersonalizationsView(),
+  const PromotionsView(),
+  const FreeCoffeesView(),
+  const OurLocalsView(),
+  const ContactUsEntriesView(),
+];
+
+List dashboardPanelsList = [
   StatsInfoModel(
     title: "Users",
-    value: "4,423",
+    subtitle: "4,423",
     svgSrc: LocalImages.imgUserBlueA200,
-    iconColor: appColors.blueA200,
-    percentage: 23,
-    statsSpan: "This Week",
-    isIncremented: true,
+    iconColor: AppColors.blue200,
+    panelView: const UsersView(),
   ),
   StatsInfoModel(
     title: "Personalizations",
-    value: "2,153",
-    svgSrc: LocalImages.iconBasketFilled,
-    iconColor: const Color(0xFF6C5DD3),
-    percentage: 10,
-    statsSpan: "This Week",
-    isIncremented: false,
+    subtitle: "4,423",
+    svgSrc: LocalImages.imgUserBlueA200,
+    iconColor: AppColors.blue200,
+    panelView: PersonalizationsView(),
   ),
   StatsInfoModel(
     title: "Doctors",
-    value: "144",
-    svgSrc: LocalImages.iconCash,
-    iconColor: const Color(0xFFFFCE73),
-    percentage: 28,
-    statsSpan: "This Week",
-    isIncremented: true,
+    subtitle: "4,423",
+    svgSrc: LocalImages.imgUserBlueA200,
+    iconColor: AppColors.blue200,
+    panelView: const PromotionsView(),
   ),
   StatsInfoModel(
     title: "Promotions",
-    value: "32",
-    svgSrc: LocalImages.iconCash,
-    iconColor: appColors.pink200,
-    percentage: 14,
-    statsSpan: "This Week",
-    isIncremented: true,
+    subtitle: "4,423",
+    svgSrc: LocalImages.imgUserBlueA200,
+    iconColor: AppColors.blue200,
+    panelView: const PromotionsView(),
   ),
   // ==========
   StatsInfoModel(
     title: "Free Coffee Codes",
-    value: "4,423",
+    subtitle: "4,423",
     svgSrc: LocalImages.imgUserBlueA200,
-    iconColor: appColors.blueA200,
-    percentage: 23,
-    statsSpan: "This Week",
-    isIncremented: true,
+    iconColor: AppColors.blue200,
+    panelView: const FreeCoffeesView(),
   ),
   StatsInfoModel(
     title: "Local SpotLight",
-    value: "2,153",
-    svgSrc: LocalImages.iconBasketFilled,
-    iconColor: const Color(0xFF6C5DD3),
-    percentage: 10,
-    statsSpan: "This Week",
-    isIncremented: false,
+    subtitle: "4,423",
+    svgSrc: LocalImages.imgUserBlueA200,
+    iconColor: AppColors.blue200,
+    panelView: const UsersView(),
   ),
   StatsInfoModel(
     title: "CHM",
-    value: "142",
-    svgSrc: LocalImages.iconCash,
-    iconColor: const Color(0xFFFFCE73),
-    percentage: 28,
-    statsSpan: "This Week",
-    isIncremented: true,
+    subtitle: "4,423",
+    svgSrc: LocalImages.imgUserBlueA200,
+    iconColor: AppColors.blue200,
+    panelView: const OurLocalsView(),
   ),
   StatsInfoModel(
     title: "Discount Codes",
-    value: "322",
-    svgSrc: LocalImages.iconCash,
-    iconColor: appColors.pink200,
-    percentage: 14,
-    statsSpan: "This Week",
-    isIncremented: true,
+    subtitle: "4,423",
+    svgSrc: LocalImages.imgUserBlueA200,
+    iconColor: AppColors.blue200,
+    panelView: const ContactUsEntriesView(),
   ),
   StatsInfoModel(
     title: "Contact Submissions",
-    value: "322",
-    svgSrc: LocalImages.iconCash,
-    iconColor: appColors.pink200,
-    percentage: 14,
-    statsSpan: "This Week",
-    isIncremented: true,
+    subtitle: "4,423",
+    svgSrc: LocalImages.imgUserBlueA200,
+    iconColor: AppColors.blue200,
+    panelView: const ContactUsEntriesView(),
   ),
 ];
 
@@ -132,7 +128,7 @@ List membersBookingInfoList = [
     title: "Total Bookings",
     value: "11,340",
     svgSrc: LocalImages.iconCart,
-    iconColor: appColors.blueA200,
+    iconColor: AppColors.blue200,
     percentage: "+ 8% from last month",
   ),
 ];

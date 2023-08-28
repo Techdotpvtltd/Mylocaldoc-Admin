@@ -2,7 +2,6 @@ import 'package:admin/controllers/authController.dart';
 import 'package:admin/exports/app_exports.dart';
 import 'package:admin/exports/common_exports.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 class Header extends StatelessWidget {
@@ -11,6 +10,7 @@ class Header extends StatelessWidget {
   }) : super(key: key);
 
   final AuthController authController = Get.find<AuthController>();
+  final MenuAppController menuController = Get.find<MenuAppController>();
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class Header extends StatelessWidget {
         if (!Responsive.isDesktop(context))
           IconButton(
             icon: const Icon(Icons.menu),
-            onPressed: context.read<MenuAppController>().controlMenu,
+            onPressed: menuController.controlMenu,
           ),
         if (!Responsive.isMobile(context))
           Expanded(
@@ -33,23 +33,33 @@ class Header extends StatelessWidget {
                   children: [
                     Text(
                       "Hi Admin",
-                      style: theme.textTheme.headlineSmall,
+                      style: Theme.of(context).textTheme.headlineSmall,
                     ),
-                    ElevatedButton(
-                      onPressed: () {
-                        authController.logout(); // Call the logout function
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: theme.colorScheme.primary,
-                      ),
-                      child: const Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(Icons.logout, color: Colors.white),
-                          SizedBox(width: 8),
-                          Text('Logout', style: TextStyle(color: Colors.white)),
-                        ],
-                      ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: LightDarkThemeSwitchButton(),
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            authController.logout(); // Call the logout function
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                Theme.of(context).colorScheme.primary,
+                          ),
+                          child: const Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.logout, color: Colors.white),
+                              SizedBox(width: 8),
+                              Text('Logout',
+                                  style: TextStyle(color: Colors.white)),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -59,7 +69,7 @@ class Header extends StatelessWidget {
                   children: [
                     Text(
                       "Welcome back",
-                      style: theme.textTheme.displayLarge,
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
                     Image.asset("assets/icons/hand-icon.png"),
                   ],
@@ -98,7 +108,6 @@ class ProfileCard extends StatelessWidget {
         vertical: defaultPadding / 2,
       ),
       decoration: BoxDecoration(
-        color: secondaryColor,
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         border: Border.all(color: Colors.white10),
       ),

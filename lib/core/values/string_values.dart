@@ -20,4 +20,5 @@ class StringValues {
   static String get last_name_cannot_empty => 'Last Name cannot be empty';
   static String get name_cannot_empty => 'Name cannot be empty';
   static String get subject_cannot_empty => 'Subject cannot be empty';
+  static String get requiredField => 'Cannot be empty';
 }

@@ -21,18 +21,15 @@ class _FreeCoffeesViewState extends State<FreeCoffeesView> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-        color: appColors.black90002,
-        child: SingleChildScrollView(
-          primary: false,
-          padding: const EdgeInsets.all(defaultPadding),
-          child: Column(
-            children: [
-              Header(),
-              const SizedBox(height: defaultPadding),
-              const TempWidgetTitle("Free Coffee")
-            ],
-          ),
+      child: SingleChildScrollView(
+        primary: false,
+        padding: const EdgeInsets.all(defaultPadding),
+        child: Column(
+          children: [
+            Header(),
+            const SizedBox(height: defaultPadding),
+            const TempWidgetTitle("Free Coffee")
+          ],
         ),
       ),
     );

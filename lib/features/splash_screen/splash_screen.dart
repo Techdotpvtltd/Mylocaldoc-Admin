@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:admin/controllers/authController.dart';
 import 'package:admin/exports/app_exports.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,6 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: appColors.black90002,
         body: SizedBox(
           width: double.maxFinite,
           child: Column(

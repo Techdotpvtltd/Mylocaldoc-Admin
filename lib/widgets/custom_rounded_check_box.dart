@@ -1,4 +1,4 @@
-import 'package:admin/core/theme/theme_helper.dart';
+import 'package:admin/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomRoundedCheckBox extends StatelessWidget {
@@ -20,8 +20,10 @@ class CustomRoundedCheckBox extends StatelessWidget {
         height: 24,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
-            color: isChecked ? theme.colorScheme.primary : Colors.transparent,
-            border: Border.all(color: appColors.whiteA700)),
+            color: isChecked
+                ? Theme.of(context).colorScheme.primary
+                : Colors.transparent,
+            border: Border.all(color: AppColors.whiteA700)),
         child: Padding(
           padding: const EdgeInsets.all(4.0),
           child: isChecked

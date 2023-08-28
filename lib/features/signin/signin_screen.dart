@@ -1,12 +1,10 @@
 import 'package:admin/controllers/authController.dart';
-import 'package:admin/core/extentions/extension.dart';
+import 'package:admin/core/extensions/extension.dart';
+import 'package:admin/core/theme/themes.dart';
 import 'package:admin/core/values/strings_manager.dart';
 import 'package:admin/exports/app_exports.dart';
 import 'package:admin/exports/common_exports.dart';
-import 'package:admin/features/main/main_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -17,6 +15,7 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+  bool isDarkMode = false;
   bool rememberMe = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   FocusNode node = FocusNode();
@@ -34,7 +33,15 @@ class _SignInScreenState extends State<SignInScreen> {
     _emailController = TextEditingController();
     _passwordController = TextEditingController();
     super.initState();
-    //dummyValues();
+
+    // dummyValues();
+  }
+
+  dummyValues() {
+    setState(() {
+      _emailController.text = "admin@mylocaldoc.com";
+      _passwordController.text = "#123@Dev";
+    });
   }
 
   @override
@@ -53,101 +60,160 @@ class _SignInScreenState extends State<SignInScreen> {
         initState: (_) {},
         builder: (AuthController authCtrlr) {
           return Scaffold(
-            backgroundColor: appColors.black900,
-            body: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 40),
-                    child: Row(
-                      children: [
-                        if (!isMobile)
-                          const Expanded(flex: 1, child: SizedBox()),
-                        Expanded(
-                          flex: 1,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+            backgroundColor: AppTheme.scaffoldBackgroundColor,
+            body: Stack(
+              children: [
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Form(
+                        key: _formKey,
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 40),
+                          child: Row(
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(top: 48.0),
-                                child: Image.asset(LocalImages.appLogo),
-                              ),
-                              Center(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(top: 40),
-                                  child: Text(
-                                    "Hi, Welcome to MyLocalDoc",
-                                    style: theme.textTheme.displayMedium,
+                              if (!isMobile)
+                                const Expanded(flex: 1, child: SizedBox()),
+                              Expanded(
+                                flex: 1,
+                                child: Center(
+                                  child: Container(
+                                    padding: const EdgeInsets.all(20),
+                                    margin: const EdgeInsets.only(top: 50),
+                                    decoration: BoxDecoration(
+                                      color: AppTheme.isLightMode
+                                          ? Colors.white
+                                          : const Color(0xFF312D4B),
+                                      borderRadius: BorderRadius.circular(6),
+                                      boxShadow: const [
+                                        BoxShadow(
+                                          color:
+                                              Color.fromRGBO(58, 53, 65, 0.2),
+                                          blurRadius: 1,
+                                          offset: Offset(0, 2),
+                                        ),
+                                        BoxShadow(
+                                          color:
+                                              Color.fromRGBO(58, 53, 65, 0.14),
+                                          blurRadius: 1,
+                                          offset: Offset(0, 1),
+                                        ),
+                                        BoxShadow(
+                                          color:
+                                              Color.fromRGBO(58, 53, 65, 0.12),
+                                          blurRadius: 3,
+                                          offset: Offset(0, 1),
+                                        ),
+                                        BoxShadow(
+                                          color:
+                                              Color.fromRGBO(58, 53, 65, 0.1),
+                                          blurRadius: 10,
+                                          offset: Offset(0, 2),
+                                        ),
+                                      ],
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(top: 48.0),
+                                          child:
+                                              Image.asset(LocalImages.appLogo),
+                                        ),
+                                        Center(
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsets.only(top: 40),
+                                            child: Text(
+                                              "Hi, Welcome to MyLocalDoc",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .headlineSmall,
+                                            ),
+                                          ),
+                                        ),
+                                        const VerticalSpace(20),
+                                        CommonTextFieldView(
+                                          controller: _emailController,
+                                          errorText: _errorEmail,
+                                          labelText: 'Email',
+                                          keyboardType:
+                                              TextInputType.emailAddress,
+                                          onChanged: (String txt) {},
+                                          textCapitalization:
+                                              TextCapitalization.none,
+                                          validator: (String? val) {
+                                            if (_emailController.text.isEmpty) {
+                                              return AppStrings
+                                                  .enterEmailAddress;
+                                            } else if (_emailController
+                                                .text.isEmail) {
+                                              return null;
+                                            }
+                                            return 'Invalid Email';
+                                          },
+                                        ),
+                                        const VerticalSpace(20),
+                                        CommonTextFieldView(
+                                          controller: _passwordController,
+                                          errorText: _errorPassword,
+                                          labelText: 'Password',
+                                          keyboardType: TextInputType.text,
+                                          onChanged: (String txt) {},
+                                          toggleObscure: () {
+                                            setState(
+                                                () => isObscure = !isObscure);
+                                          },
+                                          isObscureText: isObscure,
+                                          validator: (String? val) {
+                                            if (val == null || val.isEmpty) {
+                                              return AppStrings.enterPassword;
+                                            } else if (val.isValidPassword) {
+                                              return null;
+                                            }
+                                            return AppStrings.passwordValidator;
+                                          },
+                                        ),
+                                        const VerticalSpace(20),
+                                        ThemeButtonLarge(
+                                          title: 'Sign In',
+                                          onTap: () async {
+                                            if (_allValidation()) {
+                                              authCtrlr.loginUser(
+                                                email: _emailController.text
+                                                    .trim(),
+                                                password: _passwordController
+                                                    .text
+                                                    .trim(),
+                                              );
+                                            }
+                                          },
+                                        ),
+                                        const VerticalSpace(30),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
-                              const VerticalSpace(20),
-                              Text(
-                                "Email address",
-                                style: theme.textTheme.bodyLarge,
-                              ),
-
-                              //
-                              CommonTextFieldView(
-                                controller: authCtrlr.email,
-                                errorText: _errorEmail,
-                                labelText: 'Email',
-                                keyboardType: TextInputType.emailAddress,
-                                onChanged: (String txt) {},
-                                textCapitalization: TextCapitalization.none,
-                                validator: (String? val) {
-                                  if (authCtrlr.email.text.isEmpty) {
-                                    return AppStrings.enterEmailAddress;
-                                  } else if (authCtrlr.email.text.isEmail) {
-                                    return null;
-                                  }
-                                  return 'Invalid Email';
-                                },
-                              ),
-                              const VerticalSpace(20),
-                              Text(
-                                "Password",
-                                style: theme.textTheme.bodyLarge,
-                              ),
-                              CommonTextFieldView(
-                                controller: authCtrlr.password,
-                                errorText: _errorPassword,
-                                labelText: 'Password',
-                                keyboardType: TextInputType.text,
-                                onChanged: (String txt) {},
-                                toggleObscure: () {
-                                  setState(() => isObscure = !isObscure);
-                                },
-                                isObscureText: isObscure,
-                                validator: (String? val) {
-                                  if (val == null || val.isEmpty) {
-                                    return AppStrings.enterPassword;
-                                  } else if (val.isValidPassword) {
-                                    return null;
-                                  }
-                                  return AppStrings.passwordValidator;
-                                },
-                              ),
-                              const VerticalSpace(20),
-
-                              ThemeButtonLarge(
-                                title: 'Sign In',
-                                onTap: () async {
-                                  authCtrlr.loginUser();
-                                },
-                              ),
-                              const VerticalSpace(30),
+                              if (!isMobile)
+                                const Expanded(flex: 1, child: SizedBox()),
                             ],
                           ),
                         ),
-                        if (!isMobile)
-                          const Expanded(flex: 1, child: SizedBox()),
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                      )
+                    ],
+                  ),
+                ),
+                Positioned(
+                  right: 30,
+                  top: 30,
+                  child: LightDarkThemeSwitchButton(),
+                ),
+              ],
             ),
           );
         });

@@ -1,4 +1,4 @@
-import 'package:admin/core/theme/theme_helper.dart';
+import 'package:admin/core/theme/app_colors.dart';
 import 'package:admin/core/values/local_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -43,7 +43,7 @@ class SearchTextField extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-                color: appColors.black404143,
+                color: AppColors.black900,
                 borderRadius: BorderRadius.circular(12)),
             height: textFieldBoxHeight,
             width: 200,
@@ -53,7 +53,7 @@ class SearchTextField extends StatelessWidget {
                 textCapitalization: textCapitalization,
                 maxLines: 1,
                 onChanged: onChanged,
-                style: TextStyle(color: appColors.whiteA700),
+                style: TextStyle(color: AppColors.whiteA700),
                 obscureText: isObscureText,
                 cursorColor: Theme.of(context).primaryColor,
                 onEditingComplete: () {
@@ -65,12 +65,12 @@ class SearchTextField extends StatelessWidget {
                       ? isObscureText
                           ? IconButton(
                               icon: Icon(Icons.visibility_off,
-                                  color: appColors.blueGray300, size: 25),
+                                  color: AppColors.blueGray300, size: 25),
                               onPressed: toggleObscure,
                             )
                           : IconButton(
                               icon: Icon(Icons.visibility,
-                                  color: appColors.blueGray300, size: 25),
+                                  color: AppColors.blueGray300, size: 25),
                               onPressed: toggleObscure,
                             )
                       : null,
@@ -84,12 +84,14 @@ class SearchTextField extends StatelessWidget {
                     maxWidth: 56,
                   ),
                   hintText: labelText,
-                  labelStyle: TextStyle(color: appColors.blueGray300),
-                  hintStyle: theme.textTheme.bodyMedium!
-                      .copyWith(color: appColors.blueGray300),
+                  labelStyle: TextStyle(color: AppColors.blueGray300),
+                  hintStyle: Theme.of(context)
+                      .textTheme
+                      .bodyMedium!
+                      .copyWith(color: AppColors.blueGray300),
                   enabledBorder: InputBorder.none,
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: appColors.blueGray300),
+                    borderSide: BorderSide(color: AppColors.blueGray300),
                     borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                   ),
                   border: InputBorder.none,

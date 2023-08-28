@@ -1,4 +1,4 @@
-import 'package:admin/exports/app_exports.dart';
+import 'package:admin/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class DashboardSubMenuTextButton extends StatelessWidget {
@@ -23,18 +23,18 @@ class DashboardSubMenuTextButton extends StatelessWidget {
           border: Border(
             bottom: BorderSide(
               width: 3.0,
-              color: isSelected ? appColors.purple400 : Colors.transparent,
+              color: isSelected ? AppColors.deepPurpleA100 : Colors.transparent,
             ),
           ),
         ),
         child: Text(
           text,
-          style: theme.textTheme.displaySmall!.copyWith(
-            fontSize: 24,
-            fontWeight: FontWeight.w300,
-            fontFamily: 'Lato',
-            color: isSelected ? appColors.whiteA700 : appColors.blueGray300,
-          ),
+          style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                fontSize: 24,
+                fontWeight: FontWeight.w300,
+                fontFamily: 'Lato',
+                color: isSelected ? AppColors.whiteA700 : AppColors.blueGray300,
+              ),
         ),
       ),
     );

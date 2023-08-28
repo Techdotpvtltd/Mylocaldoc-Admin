@@ -1,4 +1,4 @@
-import 'package:admin/core/theme/theme_helper.dart';
+import 'package:admin/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CopyRightText extends StatelessWidget {
@@ -13,9 +13,9 @@ class CopyRightText extends StatelessWidget {
       left: 30,
       child: Text(
         "© ${DateTime.now().year}.All rights reserved.",
-        style: theme.textTheme.titleSmall!.copyWith(
-          color: appColors.blueGray300,
-        ),
+        style: Theme.of(context).textTheme.titleSmall!.copyWith(
+              color: AppColors.blueGray300,
+            ),
       ),
     );
   }

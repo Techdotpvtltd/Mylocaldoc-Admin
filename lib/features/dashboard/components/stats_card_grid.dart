@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:admin/core/models/stats_info_model.dart';
 import 'package:get/get.dart';
 import '../../../core/config/constants.dart';
-import 'stat_info_card.dart';
+import 'feature_info_card.dart';
 
 class StatsCardGrid extends StatelessWidget {
   const StatsCardGrid({
@@ -18,12 +18,12 @@ class StatsCardGrid extends StatelessWidget {
       children: [
         const SizedBox(height: defaultPadding),
         Responsive(
-          mobile: FileInfoCardGridView(
+          mobile: InfoCardGridView(
             crossAxisCount: size.width < 650 ? 2 : 4,
             childAspectRatio: size.width < 650 ? 1.3 : 1,
           ),
-          tablet: const FileInfoCardGridView(),
-          desktop: FileInfoCardGridView(
+          tablet: const InfoCardGridView(),
+          desktop: InfoCardGridView(
             childAspectRatio: size.width < 1400 ? 1.1 : 1.5,
           ),
         ),
@@ -32,10 +32,10 @@ class StatsCardGrid extends StatelessWidget {
   }
 }
 
-class FileInfoCardGridView extends StatelessWidget {
-  const FileInfoCardGridView({
+class InfoCardGridView extends StatelessWidget {
+  const InfoCardGridView({
     Key? key,
-    this.crossAxisCount = 3,
+    this.crossAxisCount = 4,
     this.childAspectRatio = 1,
   }) : super(key: key);
 
@@ -47,7 +47,7 @@ class FileInfoCardGridView extends StatelessWidget {
     return GridView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      itemCount: statsInfoModelList.length,
+      itemCount: dashboardPanelsList.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
         crossAxisSpacing: defaultPadding,
@@ -56,12 +56,11 @@ class FileInfoCardGridView extends StatelessWidget {
       ),
       itemBuilder: (context, index) => InkWell(
         onTap: () {
-          Get.find<NavigationController>().updatePanelView(
-            index: index,
-          );
+          Get.find<NavigationController>()
+              .updatePanelView(dashboardPanelsList[index].panelView);
         },
-        child: StatInfoCard(
-          info: statsInfoModelList[index],
+        child: FeatureInfoCard(
+          info: dashboardPanelsList[index],
         ),
       ),
     );

@@ -21,19 +21,16 @@ class _UsersViewState extends State<UsersView> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-        color: appColors.black90002,
-        child: SingleChildScrollView(
-          primary: false,
-          padding: const EdgeInsets.all(defaultPadding),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Header(),
-              const SizedBox(height: defaultPadding),
-              const TempWidgetTitle("Users")
-            ],
-          ),
+      child: SingleChildScrollView(
+        primary: false,
+        padding: const EdgeInsets.all(defaultPadding),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Header(),
+            const SizedBox(height: defaultPadding),
+            const TempWidgetTitle("Users")
+          ],
         ),
       ),
     );

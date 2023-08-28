@@ -1,4 +1,3 @@
-import 'package:admin/core/theme/theme_helper.dart';
 import 'package:flutter/material.dart';
 
 class TempWidgetTitle extends StatelessWidget {
@@ -16,7 +15,7 @@ class TempWidgetTitle extends StatelessWidget {
       child: Center(
         child: Text(
           title,
-          style: theme.textTheme.displayLarge,
+          style: Theme.of(context).textTheme.displaySmall,
         ),
       ),
     );

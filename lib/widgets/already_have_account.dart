@@ -1,4 +1,3 @@
-import 'package:admin/core/theme/theme_helper.dart';
 import 'package:admin/exports/common_exports.dart';
 import 'package:admin/features/signin/signin_screen.dart';
 import 'package:flutter/material.dart';
@@ -23,13 +22,13 @@ class AlreadyHaveAccount extends StatelessWidget {
         children: [
           Text(
             "Already have an Account? ",
-            style: theme.textTheme.bodyMedium,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
           const HorizontalSpace(5),
           Text(
             "Login",
-            style: theme.textTheme.bodyLarge!.copyWith(
-                color: theme.colorScheme.primary,
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                color: Theme.of(context).colorScheme.primary,
                 decoration: TextDecoration.underline),
           ),
         ],

@@ -1,4 +1,3 @@
-import 'package:admin/exports/app_exports.dart';
 import 'package:flutter/material.dart';
 
 class ThemeButtonLarge extends StatelessWidget {
@@ -17,13 +16,15 @@ class ThemeButtonLarge extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 30),
       child: ElevatedButton(
         style: ButtonStyle(
-          backgroundColor:
-              MaterialStateProperty.all<Color>(theme.colorScheme.primary),
+          backgroundColor: MaterialStateProperty.all<Color>(
+              Theme.of(context).colorScheme.primary),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0),
               side: BorderSide(
-                  color: theme.colorScheme.primary), // White border color
+                  color: Theme.of(context)
+                      .colorScheme
+                      .primary), // White border color
             ),
           ),
           //maximumSize: MaterialStateProperty.all<Size>(const Size(530, 58)),
@@ -34,7 +35,7 @@ class ThemeButtonLarge extends StatelessWidget {
         onPressed: onTap,
         child: Text(
           title,
-          style: theme.textTheme.bodyLarge,
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),
     );

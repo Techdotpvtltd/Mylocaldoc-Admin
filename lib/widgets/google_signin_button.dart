@@ -37,7 +37,7 @@ class GoogleSignInButton extends StatelessWidget {
             const SizedBox(width: 10),
             Text(
               title,
-              style: theme.textTheme.bodyLarge,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ],
         ),
