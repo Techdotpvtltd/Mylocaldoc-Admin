@@ -1,7 +1,7 @@
 import 'package:admin/controllers/personalization_controller.dart';
 import 'package:admin/core/extensions/extension.dart';
 import 'package:admin/core/helpers/helper_functions.dart';
-import 'package:admin/core/models/personalization_model.dart';
+import 'package:admin/models/personalization_model.dart';
 import 'package:admin/core/utils/style_utils.dart';
 import 'package:admin/core/values/strings_manager.dart';
 import 'package:admin/exports/app_exports.dart';

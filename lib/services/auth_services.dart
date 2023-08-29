@@ -2,8 +2,8 @@ import 'dart:math';
 import 'package:admin/features/signin/signin_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:admin/core/models/config.dart';
-import 'package:admin/core/models/userModel.dart';
+import 'package:admin/models/config.dart';
+import 'package:admin/models/userModel.dart';
 import 'package:get/get.dart';
 
 class AuthServices {

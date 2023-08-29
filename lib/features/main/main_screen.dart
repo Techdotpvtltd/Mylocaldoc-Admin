@@ -1,4 +1,4 @@
-import 'package:admin/animations/fade_transitioned_widget.dart';
+import 'package:admin/core/animations/fade_transitioned_widget.dart';
 import 'package:admin/controllers/menu_app_controller.dart';
 import 'package:admin/controllers/nav_controller.dart';
 import 'package:admin/core/helpers/responsive.dart';

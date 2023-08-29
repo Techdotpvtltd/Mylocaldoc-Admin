@@ -1,6 +1,6 @@
 import 'package:admin/core/extensions/extension.dart';
-import 'package:admin/core/models/config.dart';
-import 'package:admin/core/models/userModel.dart';
+import 'package:admin/models/config.dart';
+import 'package:admin/models/userModel.dart';
 import 'package:admin/core/theme/app_colors.dart';
 import 'package:admin/services/auth_services.dart';
 import 'package:admin/services/firestoreServices.dart';

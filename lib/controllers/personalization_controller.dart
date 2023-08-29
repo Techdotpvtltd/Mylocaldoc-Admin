@@ -1,11 +1,12 @@
 import 'package:admin/core/helpers/helper_functions.dart';
-import 'package:admin/core/models/personalization_model.dart';
+import 'package:admin/models/personalization_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 class PersonalizationController extends GetxController {
+
   RxList<PersonalizationModel> personalizations = <PersonalizationModel>[].obs;
 
   final personalizationsCollection =
@@ -14,7 +15,6 @@ class PersonalizationController extends GetxController {
   @override
   onInit() {
     super.onInit();
-
     getAllPersonalizations();
   }
 

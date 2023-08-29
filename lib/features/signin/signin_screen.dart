@@ -34,7 +34,7 @@ class _SignInScreenState extends State<SignInScreen> {
     _passwordController = TextEditingController();
     super.initState();
 
-    // dummyValues();
+    dummyValues();
   }
 
   dummyValues() {

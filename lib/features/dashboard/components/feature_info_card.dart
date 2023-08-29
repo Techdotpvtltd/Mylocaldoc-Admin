@@ -1,4 +1,4 @@
-import 'package:admin/core/models/stats_info_model.dart';
+import 'package:admin/models/stats_info_model.dart';
 import 'package:admin/core/theme/themes.dart';
 import 'package:admin/exports/app_exports.dart';
 import 'package:admin/widgets/rounded_bg_icon_widget.dart';

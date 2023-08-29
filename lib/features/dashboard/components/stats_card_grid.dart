@@ -1,7 +1,7 @@
 import 'package:admin/controllers/nav_controller.dart';
 import 'package:admin/core/helpers/responsive.dart';
 import 'package:flutter/material.dart';
-import 'package:admin/core/models/stats_info_model.dart';
+import 'package:admin/models/stats_info_model.dart';
 import 'package:get/get.dart';
 import '../../../core/config/constants.dart';
 import 'feature_info_card.dart';

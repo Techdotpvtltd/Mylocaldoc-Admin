@@ -1,6 +1,6 @@
-import 'package:admin/core/models/userModel.dart';
+import 'package:admin/models/userModel.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:admin/core/models/config.dart';
+import 'package:admin/models/config.dart';
 import 'api/firestoreApi.dart';
 
 class FirestoreServices {

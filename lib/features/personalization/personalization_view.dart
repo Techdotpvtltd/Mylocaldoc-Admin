@@ -1,7 +1,7 @@
 import 'package:admin/controllers/personalization_controller.dart';
 import 'package:admin/exports/app_exports.dart';
 import 'package:admin/features/dashboard/components/header.dart';
-import 'package:admin/features/personalization/components/add_dialogue.dart';
+import 'package:admin/features/personalization/components/add_personalization_dialogue.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
